@@ -58,6 +58,9 @@ PyTorch · VLA / 模仿学习(imitation learning)· 机器人仿真(LeRobot + LI
 | M3 | LoRA 微调实测 GPU 工时 → $ 训练成本 |
 | P3 | 完整成本模型(训练/推理/数据)|
 
+## 可选后续产出
+- M4 双初稿完成后,可把 π0 vs OpenVLA 的成本分析整理成 **4–6 页 workshop paper**,投 **CoRL / ICRA 2027 workshop**(cost analysis 属 niche case study,适合 workshop)。不影响主线节奏,作为加分项。
+
 ## 诚实的风险点
 - 光跑通两个 VLA 仓库 + 接仿真,对入门者有学习曲线 → 所以 P0/P1 多留时间。
 - π0(openpi)环境比 OpenVLA 复杂 → 先把 OpenVLA 跑顺,π0 作为对比再加。
