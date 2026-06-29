@@ -13,6 +13,7 @@
 reproduction/
 ├── README.md          # 本文件
 ├── 环境搭建.md         # 阶段 A:HPC3 + 环境 + 跑通第一个推理(从这开始)
+├── HPC3使用教程.md     # HPC3 通用使用流程(登录 / module / Slurm)
 └── scripts/
     └── hpc3_gpu_job.slurm.example   # UCI HPC3 Slurm 作业模板
 ```
