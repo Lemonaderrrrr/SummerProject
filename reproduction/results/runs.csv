@@ -1,0 +1,2 @@
+run_id,date,model,gpu,precision,task_suite,n_trials_per_task,n_rollouts,success_rate,peak_vram_gb,model_size_gb,params,gpu_hours,measured_or_est,official_ref,log_path,notes
+53809572,2026-07-01,openvla-7b,A30,4-bit,libero_spatial,3,30,0.733,6.2,14,7B,0.77,measured,"LIBERO-Spatial 84.7% bf16 (arXiv:2406.09246 App.E)",/pub/lihonz3/logs/openvla-m1-53809572.out,"M1; 小样本(30 rollout)方差大; free-gpu A30 不烧 core-hours"
