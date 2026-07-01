@@ -1,3 +1,4 @@
 run_id,date,model,gpu,precision,task_suite,n_trials_per_task,n_rollouts,success_rate,peak_vram_gb,model_size_gb,params,gpu_hours,measured_or_est,official_ref,log_path,notes
 53809572,2026-07-01,openvla-7b,A30,4-bit,libero_spatial,3,30,0.733,6.2,14,7B,0.77,measured,"LIBERO-Spatial 84.7% bf16 (arXiv:2406.09246 App.E)",/pub/lihonz3/logs/openvla-m1-53809572.out,"M1; 小样本(30 rollout)误差 ±16%; free-gpu A30 不烧 core-hours"
 53809723,2026-07-01,openvla-7b,A30,bf16,libero_spatial,20,200,0.835,15.8,14,7B,3.56,measured,"LIBERO-Spatial 84.7% bf16 (arXiv:2406.09246 App.E)",/pub/lihonz3/logs/openvla-bf16-53809723.out,"bf16 对照; CI±5% 含官方 84.7% → 复现验证; 显存 2.5x 于 4-bit"
+53818013,2026-07-01,openvla-7b,A30,4-bit,libero_spatial,20,140,0.836,6.2,14,7B,3.71,measured,"LIBERO-Spatial 84.7% bf16 (arXiv:2406.09246 App.E)",/pub/lihonz3/logs/openvla-4bit-n200-53818013.out,"free-gpu 抢占,140/200 完成; n=140 ±6%; 与 bf16 83.5% 几乎相同 → 量化不掉分,显存省 2.5x"
