@@ -14,9 +14,11 @@ PyTorch · VLA / 模仿学习(imitation learning)· 机器人仿真(LeRobot + LI
 ## 技术选型(待 Issue #2 最终确认)
 - **模型**:OpenVLA(Apache 2.0,消费级 GPU 可微调)+ openpi 的 π0 / π0.5(开源权重 + 微调代码)。
 - **仿真 / 基准**:LIBERO(OpenVLA、openpi 都现成支持),框架用 LeRobot。
-- **算力**:UCI HPC3(免费账号 + `free-gpu` 起步;A100 80GB / A30 24GB 可用)。
-  - 申请:用 UCInetID 邮箱发 hpc-support@uci.edu;免费 1000 core-hours + free-gpu 分区。
-  - 进阶:找机器人/ML 方向 PI 挂靠,或选 CS175 拿课程 GPU 额度,算力更稳。
+- **算力**:UCI HPC3,**走完全免费档**。
+  - 申请:用 UCInetID 邮箱发 hpc-support@uci.edu;得免费 1000 core-hours + `free-gpu` 分区。
+  - **主力**:`free-gpu`(**V100 16GB**)→ OpenVLA **4-bit 推理(~7GB)+ QLoRA 微调**(16GB 够)。
+  - **π0**:推理要 ≥24GB,V100 跑不动 → 用一次性 **1000 core-hours(≈29 个 A30/A100 GPU 小时)** 在计费 `gpu` 分区省着跑几次做对比。
+  - 详细搭建见 `reproduction/环境搭建.md`、`reproduction/HPC3使用教程.md`。
 
 ---
 
@@ -29,7 +31,7 @@ PyTorch · VLA / 模仿学习(imitation learning)· 机器人仿真(LeRobot + LI
 - [ ] **跑通一个预训练 OpenVLA 在 LIBERO 上的推理**(= 里程碑 M1 的我这半)。
 
 ### P1 · 推理 + 评测(W3–4)——对比主战场
-- [ ] 在同一 LIBERO 基准上跑 **OpenVLA** 与 **π0(openpi)** 的预训练权重。
+- [ ] 在同一 LIBERO 基准上跑 **OpenVLA**(免费 V100,4-bit)与 **π0(openpi)**(1000 core-hr 额度,A30)。
 - [ ] 记录:任务成功率、推理延迟、显存占用、模型参数量。
 - [ ] **交付 M2**:把「推理成本 + 模型规模对比」整理成表交给 Nicky。
 - 👉 这一阶段不需要会训练,适合入门起步,但已能产出真实对比数据。
@@ -55,6 +57,9 @@ PyTorch · VLA / 模仿学习(imitation learning)· 机器人仿真(LeRobot + LI
 | M2 | 推理成本、模型规模、显存/延迟对比表 |
 | M3 | LoRA 微调实测 GPU 工时 → $ 训练成本 |
 | P3 | 完整成本模型(训练/推理/数据)|
+
+## 可选后续产出
+- M4 双初稿完成后,可把 π0 vs OpenVLA 的成本分析整理成 **4–6 页 workshop paper**,投 **CoRL / ICRA 2027 workshop**(cost analysis 属 niche case study,适合 workshop)。不影响主线节奏,作为加分项。
 
 ## 诚实的风险点
 - 光跑通两个 VLA 仓库 + 接仿真,对入门者有学习曲线 → 所以 P0/P1 多留时间。
