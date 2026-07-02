@@ -55,6 +55,6 @@ export MUJOCO_GL=egl                  # 无头离屏渲染;若 egl 报错换 glx
 python examples/libero/main.py \
   --args.host 127.0.0.1 \
   --args.task-suite-name libero_spatial \
-  --args.num-trials-per-task 20
+  --args.num-trials-per-task ${TRIALS:-20}    # 默认 20;严格样本用 sbatch --export=ALL,TRIALS=50
 
 echo "PI0_LIBERO_DONE"
